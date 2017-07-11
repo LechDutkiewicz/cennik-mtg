@@ -1,0 +1,33 @@
+$button-sup-tny:		rem-calc(2);
+
+.management-icons {
+	& + * {
+		margin-top: rem-calc(15);
+	}
+}
+.ajax-spinner {
+	background-image: url("../images/ring-alt.svg");
+	background-size: contain;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-left: 20px;
+}
+.dashicons,
+.dashicons-before:before {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+}
+
+.center {
+	width: 150px;
+	margin: 40px auto;	
+}
+
+button,
+.button {
+	&.super-tiny {
+		@include button-size($button-sup-tny);
+	}
+}

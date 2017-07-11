@@ -1,0 +1,14 @@
+.margin-top {
+	margin-top:20px;
+}
+
+input{ 
+	&.super-tiny {
+		padding: $button-sup-tny ($button-sup-tny * 2) ($button-sup-tny + rem-calc(1)) ($button-sup-tny * 2);
+		max-width: rem-calc(40);
+		text-align: center;
+	}
+	&.inline-block {
+		display: inline-block;
+	}
+}

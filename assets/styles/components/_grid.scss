@@ -1,0 +1,26 @@
+// // Grid system
+// .main {
+//   @include make-sm-column($main-sm-columns);
+//   .sidebar-primary & {
+//     @include make-sm-column($main-sm-columns - $sidebar-sm-columns);
+//   }
+// }
+// .sidebar {
+//   @include make-sm-column($sidebar-sm-columns);
+// }
+
+.row {
+	.divider {
+		border-bottom: 1px dotted $concrete;
+	}
+	&:last-child {
+		.divider {
+			border-bottom: none;
+		}
+	}
+}
+
+.gmap3 {
+	width: 100%;
+	height: 100%;
+}

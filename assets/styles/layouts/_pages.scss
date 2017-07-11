@@ -1,0 +1,33 @@
+.wrap {
+	padding-top: 40px;
+}
+main {
+	padding-bottom: 50px;
+}
+
+.tabs-content {
+	table {
+		width: 100%;
+	}
+}
+
+.yellow {
+	color: $yellow;
+}
+[data-foil="yellow"] {
+	background-color: $yellow !important;
+}
+
+.loading {
+	display: none;
+}
+
+.dashicons, .dashicons-before:before {
+	vertical-align: middle !important;
+}
+
+.text-white {
+	label {
+		color: #FFF;
+	}
+}

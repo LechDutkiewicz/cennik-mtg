@@ -1,0 +1,618 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-11-15 17:00+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: bower_components\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+"X-Poedit-SearchPathExcluded-2: assets\n"
+"X-Poedit-SearchPathExcluded-3: dist\n"
+
+#: 404.php:4
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Przepraszamy, ale strona, którą próbujesz obejrzeć nie istnieje."
+
+#: base.php:14
+msgid ""
+"You are using an <strong>outdated</strong> browser. Please <a href=\"http://"
+"browsehappy.com/\">upgrade your browser</a> to improve your experience."
+msgstr ""
+"Twoja przeglądarka nie obsługuje tej strony. Upewnij się, że posiadasz "
+"aktualną wersję przeglądarki."
+
+#: functions.php:30 functions.php:57
+#, php-format
+msgid "Error locating %s for inclusion"
+msgstr "Błąd lokalizacji % s do włączenia"
+
+#: index.php:18 template-by-price.php:22
+msgid "You don't have any cards added yet."
+msgstr "Jeszcze nie masz dodanych żadnych kart."
+
+#: index.php:34 index.php:37 index.php:39
+msgid "Prices update runs every"
+msgstr "Aktualizacja cen działa co"
+
+#: index.php:34
+msgid "minute"
+msgstr "minutę"
+
+#: index.php:37
+msgid "hour"
+msgstr "godzinę"
+
+#: index.php:39
+msgid "friday"
+msgstr "piątek"
+
+#: index.php:46
+msgid "Name of last updated card: "
+msgstr "Nazwa ostatnio zaktualizowanej karty:"
+
+#: lib/ajax-methods.php:13 lib/ajax-methods.php:161 lib/ajax-methods.php:181
+#: lib/ajax-methods.php:203 lib/ajax-methods.php:235 lib/ajax-methods.php:281
+#: lib/ajax-methods.php:303 lib/ajax-methods.php:319 lib/ajax-methods.php:344
+#: lib/ajax-methods.php:360 lib/ajax-methods.php:385 lib/ajax-methods.php:401
+#: lib/ajax-methods.php:426 lib/ajax-methods.php:467 lib/ajax-methods.php:524
+#: lib/ajax-methods.php:541 lib/ajax-methods.php:664
+msgid "Cannot send email to destination. No parameter receive form AJAX call."
+msgstr ""
+
+#: lib/ajax-methods.php:438
+msgid "You're trying to sell more cards than you have available"
+msgstr "Próbujesz sprzedać więcej kart niż jest dostępne"
+
+#: lib/ajax-methods.php:450
+msgid "Please change amount of sold cards first"
+msgstr "Proszę zmień najpierw ilość kart sprzedanych"
+
+#: lib/ajax-methods.php:456
+msgid "You're trying to sell zero cards"
+msgstr "Próbujesz sprzedać zero kart"
+
+#: lib/ajax-methods.php:511 lib/ajax-methods.php:687
+msgid "You've reached end of internet"
+msgstr "Osiągnięto koniec Internetu"
+
+#: lib/ajax-methods.php:612
+msgid "Succesfully added"
+msgstr "Pomyślnie dodano"
+
+#: lib/ajax-methods.php:701 lib/ajax-methods.php:783 lib/ajax-methods.php:828
+#: lib/ajax-methods.php:856 lib/ajax-methods.php:900 lib/ajax-methods.php:945
+#: templates/summaries-by-price.php:49 templates/summaries-by-price.php:52
+#: templates/summaries.php:48 templates/summaries.php:51
+msgid "Error"
+msgstr "Błąd"
+
+#: lib/ajax-methods.php:768
+msgid "Success"
+msgstr "Powodzenie"
+
+#: lib/ajax-methods.php:872
+#, php-format
+msgid "Cart nr %s status changed to %s"
+msgstr "Koszyka nr %s stan został zmieniony na %s"
+
+#: lib/ajax-methods.php:878
+msgid "You haven't changed cart status."
+msgstr "Nie zmieniłeś statusu koszyka."
+
+#: lib/ajax-methods.php:911 lib/custom-fields.php:162
+#: templates/search-basket.php:117
+msgid "Shipped"
+msgstr "Wysłane"
+
+#: lib/ajax-methods.php:915 lib/custom-fields.php:163
+#: templates/search-basket.php:118
+msgid "Billed"
+msgstr "Rozliczone"
+
+#: lib/ajax-methods.php:919 lib/custom-fields.php:160
+#: templates/search-basket.php:116 templates/search-basket.php:120
+msgid "Pre order"
+msgstr "Przedsprzedaż"
+
+#: lib/ajax-methods.php:955
+msgid "Succesfully deleted post."
+msgstr "Pomyślnie usunięty post."
+
+#: lib/cron.php:88
+#, php-format
+msgid "Script was completed last time at: %s"
+msgstr "Ostatnie wykonanie skryptu: %s"
+
+#: lib/custom-fields.php:14
+msgid "Billing summaries"
+msgstr "Podsumowania rozliczeń"
+
+#: lib/custom-fields.php:18 templates/search-basket.php:55
+#: templates/search-basket.php:79
+msgid "Total"
+msgstr "Łącznie"
+
+#: lib/custom-fields.php:24 templates/search-basket.php:67
+msgid "Team"
+msgstr "Zespół"
+
+#: lib/custom-fields.php:30 templates/search-basket.php:71
+msgid "Leszek"
+msgstr "Leszek"
+
+#: lib/custom-fields.php:36 templates/search-basket.php:75
+msgid "Sławek"
+msgstr "Sławek"
+
+#: lib/custom-fields.php:73
+msgid "Picked cards"
+msgstr "Wybrane karty"
+
+#: lib/custom-fields.php:77
+msgid "Card"
+msgstr "Karta"
+
+#: lib/custom-fields.php:80
+msgid "Add next card"
+msgstr "Dodaj następną kartę"
+
+#: lib/custom-fields.php:86 templates/search-basket.php:40
+msgid "Name"
+msgstr "Nazwa"
+
+#: lib/custom-fields.php:96 lib/custom-fields.php:381
+#: templates/search-basket.php:44
+msgid "Price"
+msgstr "Cena"
+
+#: lib/custom-fields.php:103 lib/custom-fields.php:352
+msgid "Amount"
+msgstr "Ilość"
+
+#: lib/custom-fields.php:112
+msgid "Basket discount"
+msgstr "Zniżka"
+
+#: lib/custom-fields.php:120
+msgid "Basket shipping cost"
+msgstr "Koszty wysyłki"
+
+#: lib/custom-fields.php:128
+msgid "Basket team sum"
+msgstr "Suma teamu"
+
+#: lib/custom-fields.php:135
+msgid "Basket Leszek sum"
+msgstr "Suma Leszka"
+
+#: lib/custom-fields.php:142
+msgid "Basket Sławek sum"
+msgstr "Suma Sławka"
+
+#: lib/custom-fields.php:149
+msgid "Basket total sum"
+msgstr "Suma total"
+
+#: lib/custom-fields.php:156
+msgid "Basket status"
+msgstr "Status koszyka"
+
+#: lib/custom-fields.php:201
+msgid "Zmienne dla cron"
+msgstr "Zmienne dla cron"
+
+#: lib/custom-fields.php:205
+msgid "Step"
+msgstr "Krok"
+
+#: lib/custom-fields.php:211
+msgid "Last launch"
+msgstr "Ostatni lot"
+
+#: lib/custom-fields.php:217
+msgid "Last card"
+msgstr "Ostatnia karta"
+
+#: lib/custom-fields.php:255
+msgid "Card description"
+msgstr "Opis karty"
+
+#: lib/custom-fields.php:259
+msgid "Edition"
+msgstr "Edycja"
+
+#: lib/custom-fields.php:314 templates/search-basket.php:43
+msgid "Condition"
+msgstr "Stan"
+
+#: lib/custom-fields.php:330
+msgid "Language"
+msgstr "Język"
+
+#: lib/custom-fields.php:362
+msgid "Sold"
+msgstr "Sprzedane"
+
+#: lib/custom-fields.php:372
+msgid "Reserved"
+msgstr "Zarezerwowane"
+
+#: lib/custom-fields.php:391 templates/search-basket.php:53
+#: templates/search-basket.php:89
+msgid "Discount"
+msgstr "Zniżka"
+
+#: lib/custom-fields.php:402
+msgid "Notes"
+msgstr "Uwagi"
+
+#: lib/custom-fields.php:408
+msgid "Rarity"
+msgstr "Rzadkość"
+
+#: lib/custom-fields.php:427 templates/add-post.php:65
+msgid "Foil"
+msgstr "Foil"
+
+#: lib/custom-fields.php:434
+msgid "Ownership"
+msgstr "Właściciel"
+
+#: lib/custom-fields.php:474
+msgid "Media"
+msgstr "Media"
+
+#: lib/custom-fields.php:478
+msgid "Image link"
+msgstr "Link zdjęcia"
+
+#: lib/custom-fields.php:484
+msgid "Card link"
+msgstr "Link karty"
+
+#: lib/extras.php:31
+msgid "Continued"
+msgstr "Kontynuuj"
+
+#: lib/init.php:22
+msgid "Primary Navigation"
+msgstr "Nawigacja główna"
+
+#: lib/init.php:49
+msgid "Primary"
+msgstr "Pierwszy"
+
+#: lib/init.php:58
+msgid "Footer"
+msgstr "Stopka"
+
+#: lib/post-types.php:11
+msgid "Baskets"
+msgstr "Koszyki"
+
+#: lib/post-types.php:12
+msgid "Post Type"
+msgstr "Typ wpisu"
+
+#: lib/post-types.php:13
+msgid "Item Archives"
+msgstr ""
+
+#: lib/post-types.php:14
+msgid "Parent Item:"
+msgstr ""
+
+#: lib/post-types.php:15
+msgid "All Items"
+msgstr ""
+
+#: lib/post-types.php:16
+msgid "Add New Item"
+msgstr ""
+
+#: lib/post-types.php:17
+msgid "Add New"
+msgstr ""
+
+#: lib/post-types.php:18
+msgid "New Item"
+msgstr ""
+
+#: lib/post-types.php:19
+msgid "Edit Item"
+msgstr ""
+
+#: lib/post-types.php:20
+msgid "Update Item"
+msgstr ""
+
+#: lib/post-types.php:21
+msgid "View Item"
+msgstr ""
+
+#: lib/post-types.php:22
+msgid "Search Item"
+msgstr ""
+
+#: lib/post-types.php:23
+msgid "Not found"
+msgstr ""
+
+#: lib/post-types.php:24
+msgid "Not found in Trash"
+msgstr ""
+
+#: lib/post-types.php:25
+msgid "Featured Image"
+msgstr ""
+
+#: lib/post-types.php:26
+msgid "Set featured image"
+msgstr ""
+
+#: lib/post-types.php:27
+msgid "Remove featured image"
+msgstr ""
+
+#: lib/post-types.php:28
+msgid "Use as featured image"
+msgstr ""
+
+#: lib/post-types.php:29
+msgid "Insert into item"
+msgstr ""
+
+#: lib/post-types.php:30
+msgid "Uploaded to this item"
+msgstr ""
+
+#: lib/post-types.php:31
+msgid "Items list"
+msgstr ""
+
+#: lib/post-types.php:32
+msgid "Items list navigation"
+msgstr ""
+
+#: lib/post-types.php:33
+msgid "Filter items list"
+msgstr ""
+
+#: lib/post-types.php:36
+msgid "Basket"
+msgstr ""
+
+#: lib/post-types.php:37
+msgid "Shoppping cart with ordered magic cards"
+msgstr ""
+
+#: lib/titles.php:13
+msgid "Latest Posts"
+msgstr ""
+
+#: lib/titles.php:18
+#, php-format
+msgid "Search Results for %s"
+msgstr ""
+
+#: lib/titles.php:20
+msgid "Not Found"
+msgstr ""
+
+#: lib/utils.php:61 lib/utils.php:62 lib/utils.php:63 lib/utils.php:64
+#: lib/utils.php:66 lib/utils.php:67 lib/utils.php:69
+msgid "Undefined"
+msgstr ""
+
+#: lib/utils.php:68
+msgid "------"
+msgstr ""
+
+#: search.php:5
+msgid "Sorry, no results were found."
+msgstr ""
+
+#: templates/add-post.php:23
+msgid "Card name"
+msgstr "Nazwa karty"
+
+#: templates/add-post.php:27
+msgid "Card expansion"
+msgstr "Dodatek karty"
+
+#: templates/add-post.php:32
+msgid "Card condition"
+msgstr "Stan karty"
+
+#: templates/add-post.php:40
+msgid "Card language"
+msgstr "Język karty"
+
+#: templates/add-post.php:48
+msgid "Card quantity"
+msgstr "Ilość karty"
+
+#: templates/add-post.php:54
+msgid "Comments"
+msgstr "Komentarze"
+
+#: templates/add-post.php:61
+msgid "Regular"
+msgstr "Regularna"
+
+#: templates/add-post.php:70
+msgid "Card owner"
+msgstr "Właściciel karty"
+
+#: templates/add-post.php:78 templates/searchform.php:10
+msgid "Add card"
+msgstr "Dodaj nową kartę"
+
+#: templates/comments.php:19
+msgid "&larr; Older comments"
+msgstr ""
+
+#: templates/comments.php:22
+msgid "Newer comments &rarr;"
+msgstr ""
+
+#: templates/comments.php:31
+msgid "Comments are closed."
+msgstr ""
+
+#: templates/content-basket-row.php:17 templates/content-basket-row.php:44
+msgid "Unset"
+msgstr ""
+
+#: templates/content-basket-row.php:45 templates/content-search.php:61
+#: templates/content.php:55 templates/content_old.php:48
+msgid "Update card price"
+msgstr ""
+
+#: templates/content-basket-row.php:48 templates/content-search.php:67
+msgid "Remove from basket"
+msgstr ""
+
+#: templates/content-page.php:2 templates/content-single.php:11
+msgid "Pages:"
+msgstr ""
+
+#: templates/content-search.php:58 templates/content.php:52
+#: templates/content_old.php:45
+msgid "Move card to trash"
+msgstr ""
+
+#: templates/content-search.php:64 templates/content_old.php:51
+msgid "Update card quantity based on new sales"
+msgstr ""
+
+#: templates/content_old.php:54
+msgid "Console log card information"
+msgstr ""
+
+#: templates/entry-meta.php:2
+msgid "By"
+msgstr ""
+
+#: templates/footer.php:12
+msgid "Add cards"
+msgstr "Dodaj karty"
+
+#: templates/footer.php:22
+msgid "Add new card"
+msgstr "Dodaj nową kartę"
+
+#: templates/page-header.php:4
+#, php-format
+msgid "Total different cards: %s"
+msgstr "Łącznie różnych kart: %s"
+
+#: templates/search-basket.php:11
+msgid "Clear view"
+msgstr "Wyczyść widok"
+
+#: templates/search-basket.php:17
+msgid "Load cart"
+msgstr "Wczytaj koszyk"
+
+#: templates/search-basket.php:34
+msgid "Customer's name"
+msgstr "Imię klienta"
+
+#: templates/search-basket.php:41
+msgid "Expansion"
+msgstr "Dodatek"
+
+#: templates/search-basket.php:42
+msgid "Extras"
+msgstr "Uwagi"
+
+#: templates/search-basket.php:45
+msgid "Available"
+msgstr "Dostępne"
+
+#: templates/search-basket.php:46
+msgid "Sell"
+msgstr "Sprzedaj"
+
+#: templates/search-basket.php:54 templates/search-basket.php:101
+msgid "KP"
+msgstr "KP"
+
+#: templates/search-basket.php:113
+msgid "Cart status"
+msgstr "Stan koszyka"
+
+#: templates/search-basket.php:130
+msgid "Update cart status"
+msgstr "Aktualizuj Status (Update status)"
+
+#: templates/search-basket.php:131
+msgid "Mark as shipped"
+msgstr "Zaznacz jako wysłane"
+
+#: templates/search-basket.php:134
+msgid "Mark as billed"
+msgstr "Zaznacz jako rozliczone"
+
+#: templates/search-basket.php:152
+msgid "Remove cart"
+msgstr "Usuń koszyk"
+
+#: templates/search-basket.php:155
+msgid "E-mail view"
+msgstr "Widok e-mail"
+
+#: templates/search-basket.php:158
+msgid "Save cart"
+msgstr "Zapisz koszyk"
+
+#: templates/searchform.php:6
+msgid "Search"
+msgstr "Szukaj"
+
+#: templates/summaries-by-price.php:20 templates/summaries.php:20
+msgid "Owner"
+msgstr "Właściciel"
+
+#: templates/summaries-by-price.php:21 templates/summaries.php:21
+msgid "Amount of cards"
+msgstr "Ilość kart"
+
+#: templates/summaries-by-price.php:22 templates/summaries.php:22
+msgid "Total value"
+msgstr "Wartość całkowita"
+
+#: templates/summaries-by-price.php:23
+msgid "Cumulated value"
+msgstr "Skumulowana wartość"
+
+#: templates/summaries.php:67
+#, php-format
+msgid "mBank: %s"
+msgstr "mBank: %s"
+
+#: templates/summaries.php:70
+#, php-format
+msgid "Total cards: %s"
+msgstr "Wszystkie karty: %s"
+
+#: templates/summaries.php:73
+#, php-format
+msgid "Total value: %s"
+msgstr "Łączna wartość: %s"
+
+#~ msgid "Script was completed last time at: "
+#~ msgstr "Skrypt został ostatnio wykonany o:"
