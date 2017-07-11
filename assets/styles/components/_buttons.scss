@@ -27,7 +27,22 @@ $button-sup-tny:		rem-calc(2);
 
 button,
 .button {
+	max-height: 50px;
 	&.super-tiny {
 		@include button-size($button-sup-tny);
+	}
+	&.working {
+		background-image: repeating-linear-gradient(-45deg, $button-bg-color 0%, $button-bg-color 25%, lighten($button-bg-color, 15%) 25%, lighten($button-bg-color, 15%) 50%, $button-bg-color 50%, $button-bg-color 75%, lighten($button-bg-color, 15%) 75%, lighten($button-bg-color, 15%) 100%);
+		@include animation( loading-stripes 2s linear infinite );
+		background-size: 50px 50px;
+	}
+}
+
+@include keyframes(loading-stripes) {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -150px 0px;
 	}
 }

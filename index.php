@@ -45,6 +45,9 @@ if ( !is_user_logged_in() ) { ?>
         <p>
           <?php echo __( "Name of last updated card: ", "sage" ) . get_field( "ostatnia_karta", "options" ); ?>
         </p>
+        <p>
+          <button id="update_50"><?= __("Update 100 prices", "sage"); ?></button>
+        </p>
       </div>
 
     </div>

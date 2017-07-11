@@ -28,7 +28,7 @@ function mkm_add_card() {
 
   }
 
-  $card_data = array();
+  $card_data = array ();
 
   foreach ($list as $index => $item) {
     $list[$index] = explode("\t", $item);
@@ -51,7 +51,7 @@ function mkm_add_card() {
     }
 
     // Setup data for new post
-    $postarr = array(
+    $postarr = array (
       'post_title'  => $list[$index][0],
       'post_status' => 'publish',
       );
@@ -63,7 +63,7 @@ function mkm_add_card() {
       get_post_meta($last_post_id, 'stan')[0] != $card_data[$index]['condition'] ||
       get_post_meta($last_post_id, 'jezyk')[0] != $card_data[$index]['lang'] ) {
 
-      $return_data['dane_wejsciowe'] = array(
+      $return_data['dane_wejsciowe'] = array (
         get_post_meta($last_post_id, 'edycja')[0],
         $card_data[$index]['expansion'],
         get_post_meta($last_post_id, 'stan')[0],
@@ -139,7 +139,7 @@ die( json_encode($return_data) );
 
 function get_last_post_id($post_type = "post") {
 
-  $last = wp_get_recent_posts(array(
+  $last = wp_get_recent_posts(array (
     "numberposts" => 1,
     "post_type"   => $post_type
     ));
@@ -229,6 +229,29 @@ function mkm_update_post() {
 add_action( 'wp_ajax_update_post', 'mkm_update_post' );
 add_action( 'wp_ajax_nopriv_update_post', 'mkm_update_post' );
 
+function mkm_update_cron_posts() {
+
+  $start_date = new dateTime();
+
+  $new_cron_step = update_cards_prices();
+
+  $return_data["krok_dla_cron"] = $new_cron_step;
+
+  $finish_date = new dateTime();
+
+  $interval = date_diff( $start_date, $finish_date );
+
+  $return_data["rozpoczecie_skryptu"] = $start_date->format("d-m-Y H:i:s");
+  $return_data["skończenie_skryptu"] = $finish_date->format("d-m-Y H:i:s");
+  $return_data["trwanie_skryptu"] = $interval->format("%h[g]:%i[m]:%s[s]");
+
+  die( json_encode( $return_data ) );
+
+}
+
+add_action( 'wp_ajax_update_cron_posts', 'mkm_update_cron_posts' );
+add_action( 'wp_ajax_nopriv_update_cron_posts', 'mkm_update_cron_posts' );
+
 function mkm_update_quantity() {
 
   if ( !isset( $_POST ) || empty( $_POST ) ) {
@@ -305,7 +328,7 @@ function mkm_choose_condition() {
   }
 
   $return_data["success"] = 1;
-  $return_data["value"] = Utils\get_conditions_array();
+  $return_data["value"] = Utils\get_conditions_array ();
   die( json_encode( $return_data ) );
 
 }
@@ -346,7 +369,7 @@ function mkm_choose_language() {
   }
 
   $return_data["success"] = 1;
-  $return_data["value"] = Utils\get_languages_array();
+  $return_data["value"] = Utils\get_languages_array ();
   die( json_encode( $return_data ) );
 
 }
@@ -387,7 +410,7 @@ function mkm_choose_owner() {
   }
 
   $return_data["success"] = 1;
-  $return_data["value"] = Utils\get_owners_array();
+  $return_data["value"] = Utils\get_owners_array ();
   die( json_encode( $return_data ) );
 
 }
@@ -475,13 +498,13 @@ function mkm_load_posts() {
   $meta_key =  !empty($_POST["meta_key"]) ? $_POST["meta_key"] : NULL;
 
   $args = array (
-    'post_type' => array( 'post' ),
+    'post_type' => array ( 'post' ),
     'posts_per_page' => get_option('posts_per_page'),
     'paged' => $paged + 1,
     'order' => $order,
     'orderby' => $orderby,
-    'meta_query' => array(
-     array(
+    'meta_query' => array (
+     array (
       'key' => 'rarity',
       'value' => $rarity + 1,
       'compare' => '=',
@@ -542,7 +565,7 @@ function mkm_add_single_card() {
     die( json_encode( $return_data ) );
   }
 
-  $postarr = array(
+  $postarr = array (
     'post_title'  => $_POST["name"],
     'post_status' => 'publish',
     );
@@ -630,7 +653,7 @@ add_action( 'wp_ajax_nopriv_add_single_card', 'mkm_add_single_card' );
 //  // echo $_POST["card-id"];
 
 //  $args = array (
-//    'post_type'   => array( 'post' ),
+//    'post_type'   => array ( 'post' ),
 //    'p'       => $_POST["card-id"]
 //    );
 
@@ -666,7 +689,7 @@ function mkm_add_to_basket() {
   }
 
   $args = array (
-    'post_type'   => array( 'post' ),
+    'post_type'   => array ( 'post' ),
     'p'       => $_POST["card-id"]
     );
 
@@ -714,7 +737,7 @@ function mkm_add_basket() {
     $basket_status = $_POST['basket_status'];
 
     if (!isset($basket_id)) {
-      $postarr = array(
+      $postarr = array (
         'post_type'   => 'basket',
         'post_title'  => current_time('Y-m-d') . "-" . $basket_name,
         'post_status' => 'publish',
@@ -735,14 +758,17 @@ function mkm_add_basket() {
     update_post_meta($added_post_id, 'basket_total_sum', $total_sum);
     update_post_meta($added_post_id, 'basket_status', $basket_status);
 
-    $cards_array = array();
+    $cards_array = array ();
+    $return_data = array ();
 
     foreach ( $cards as $key => $card ) {
-      $cards_array[] = array(
+
+      $cards_array[] = array (
         'card_name'   => $card['cardId'],
         'card_price'  => $card['price'],
         'card_amount' => $card['amount']
         );
+
       // update amount of reserved cards
       $cards_reserved = get_post_meta($card['cardId'], "cards_reserved");
       if (!$cards_reserved[0]) { $cards_reserved = 0; }
@@ -750,23 +776,27 @@ function mkm_add_basket() {
       if (!isset($basket_id)) {
         update_post_meta($card['cardId'], "cards_reserved", $cards_reserved[0] + $card['amount']);
 
+        // update_field('field_5964d04c485d3', $cards_reserved[0] + $card['amount']);
+
       // update amount of available cards
-        $cards_available = get_field('ilosc', $card['cardId']);
+        $cards_available = get_field('field_56606fee5ca20', $card['cardId']);
       // echo $cards_available;
-        update_field('ilosc', $cards_available - $card['amount'], $card['cardId']);
+        update_field('field_56606fee5ca20', $cards_available - $card['amount'], $card['cardId']);
 
       }
+
+      // dodaj informację o ilości kart dostępnych i zarezerwowanych do tablicy danych zwrotnych
+      $return_data["cards"][$card['cardId']]["cards_reserved"] = get_post_meta($card['cardId'], "cards_reserved");
+      $return_data["cards"][$card['cardId']]["cards_ilosc"] = get_field('field_56606fee5ca20', $card['cardId']);
     }
 
-    update_field('field_cq8', $cards_array, $added_post_id);
+    update_field('field_5964d130e216d', $cards_array, $added_post_id);
 
-    $return_data = array(
-      'added_post_id'   => $added_post_id,
-      'discount'        => $discount,
-      'total_sum'       => $total_sum,
-      'basket_status'   => $basket_status,
-      'value'           => __('Success', 'sage'),
-      );
+    $return_data['added_post_id'] = $added_post_id;
+    $return_data['discount'] = $discount;
+    $return_data['total_sum'] = $total_sum;
+    $return_data['basket_status'] = $basket_status;
+    $return_data['value'] = __('Success', 'sage');
 
     die( json_encode( $return_data ) );
 
@@ -779,23 +809,31 @@ add_action( 'wp_ajax_nopriv_add_basket', 'mkm_add_basket' );
 
 function mkm_load_basket() {
 
+  // $return_data['test'] = "dzialam";
+
+  // die(json_encode($return_data));
+
   if ( !isset( $_POST ) || empty( $_POST ) ) {
     $return_data['value'] = __( 'Error', 'sage' );
     die( json_encode( $return_data ) );
   } else {
 
     $id = $_POST["basket_id"];
-    $cards = get_field( 'cards_list', $id );
+    $cards = get_field( 'field_5964d130e216d', $id );
 
-    if ( have_rows('cards_list', $id) ) {
-      while ( have_rows('cards_list', $id) ) {
+    // $return_data["POST"]["id"] = $id;
+    // $return_data["is_ready"] = function_exists( "have_rows" ) ? "1" : "0";
+    // $return_data["basket_content"]["cards"] = $cards;
+
+    if ( have_rows('field_5964d130e216d', $id) ) {
+      while ( have_rows('field_5964d130e216d', $id) ) {
         the_row();
         // $return_data['cards'][] = get_sub_field('card_price');
         $card = get_sub_field('card_name');
         $price = get_sub_field('card_price');
         $amount_sold = get_sub_field('card_amount');
         $args = array (
-          'post_type'   => array( 'post' ),
+          'post_type'   => array ( 'post' ),
           'p'       => $card->ID
           );
 
@@ -813,7 +851,13 @@ function mkm_load_basket() {
         }
       }
 
-      die();
+      die(json_encode($args));
+    } else {
+
+      $return_data["message"] = "No rows for this basket";
+
+      die(json_encode($return_data));
+
     }
   }
 
@@ -830,7 +874,7 @@ function get_basket_discount() {
   } else {
 
     $id = $_POST["basket_id"];
-    $return_data = array(
+    $return_data = array (
       "discount"  => get_post_meta($id, 'basket_discount', true),
       "shipping"  => get_post_meta($id, 'basket_shipping_cost', true),
       "status"  => get_post_meta($id, 'basket_status', true),
@@ -862,23 +906,37 @@ function update_basket_status() {
 
     $current_status = get_post_meta( $id, "basket_status", true );
 
+    $return_data = array (
+      "dane_wejsciowe"  => array (
+        "id"                => $id,
+        "zmien_status"      => $status,
+        "aktualny_status"   => $current_status,
+        )
+      );
+
     if ( $status !== $current_status ) {
 
       update_post_meta( $id, "basket_status", $status );
-      update_cards_amounts( $id, $status, $current_status );
+      
+      // store return value as variable
+      $cards_update = update_cards_amounts( $id, $status, $current_status );
+
       update_summaries( $id, $status, $current_status );
 
-      $return_data = array(
-        "value"   => sprintf(__('Cart nr %s status changed to %s', 'sage'), $id, $status),
-        );
+      $return_data["value"] = sprintf( __('Cart nr %s status changed to %s', 'sage'), $id, $status );
 
     } else {
 
-      $return_data = array(
-        "value"   => __('You haven\'t changed cart status.', 'sage'),
+      $cards_update = array (
+        "Nic nie zostało zaktualizowane"
         );
 
+      $return_data["value"] = __('You haven\'t changed cart status.', 'sage');
+
     }
+
+    // $return_data = array_merge( $return_data, $cards_update );
+    $return_data["updated_cards"] = $cards_update;
 
     die( json_encode( $return_data ) );
   }
@@ -920,7 +978,7 @@ function get_basket_status() {
       break;
     }
 
-    $return_data = array(
+    $return_data = array (
       "status"        => $status,
       "statusString"  => $status_string,
       );
@@ -951,7 +1009,7 @@ function remove_basket() {
     update_cards_amounts( $id, "trash" );
     $response = wp_trash_post( $id );
 
-    $return_data = array(
+    $return_data = array (
       "value"        => __("Succesfully deleted post.", "sage"),
       );
 
@@ -966,10 +1024,16 @@ add_action( 'wp_ajax_nopriv_remove_basket', 'remove_basket' );
 function update_cards_amounts($basket_id, $basket_status, $basket_previous_status) {
 
   // check if the repeater field has rows of data
-  if( have_rows("cards_list", $basket_id) ) {
+  if( have_rows("field_5964d130e216d", $basket_id) ) {
+
+    $karty_w_koszyku = get_field("field_5964d130e216d", $basket_id);
+
+    $return_data = array (
+      "kart_w_koszyku" => count($karty_w_koszyku)
+      );
 
   // loop through the rows of data
-    while ( have_rows("cards_list", $basket_id) ) {
+    while ( have_rows("field_5964d130e216d", $basket_id) ) {
       the_row();
 
       // display a sub field value
@@ -979,15 +1043,24 @@ function update_cards_amounts($basket_id, $basket_status, $basket_previous_statu
       $reserved_cards = get_post_meta( $card_name->ID, "cards_reserved", true );
       $sold_cards = get_post_meta( $card_name->ID, "sprzedane", true );
 
+      $return_data["basket-" . $basket_id][$card_name->ID]["dane_na_wejsciu"]["nazwa_karty"] = $card_name->post_name;
+      $return_data["basket-" . $basket_id][$card_name->ID]["dane_na_wejsciu"]["ilosc_w_koszyku"] = $card_amount;
+      $return_data["basket-" . $basket_id][$card_name->ID]["dane_na_wejsciu"]["ilosc_w_sklepie"] = $available_cards;
+      $return_data["basket-" . $basket_id][$card_name->ID]["dane_na_wejsciu"]["sprzedane"] = $get_post_meta;
+      $return_data["basket-" . $basket_id][$card_name->ID]["dane_na_wejsciu"]["zarezerwowane"] = $reserved_cards;
+
       switch ($basket_status) {
         case 'preorder':
         // add reserved and remove sold if changed from shipped to preorder
         if ($basket_previous_status === "shipped") {
+          // zaktualizuj ilość kart zarezerwowanych
           update_post_meta( $card_name->ID, "cards_reserved", $reserved_cards + $card_amount, $reserved_cards );
+          // zaktualizuj ilość kart sprzedanych
           update_post_meta( $card_name->ID, "sprzedane", $sold_cards - $card_amount, $sold_cards );
         }
         // add reserved if changed directly from billed to preorder
         else if ($basket_previous_status === "billed") {
+          // zaktualizuj ilość kart zarezerwowanych
           update_post_meta( $card_name->ID, "cards_reserved", $reserved_cards + $card_amount, $reserved_cards );      
         }
 
@@ -996,13 +1069,17 @@ function update_cards_amounts($basket_id, $basket_status, $basket_previous_statu
         case 'shipped':
         // remove reserved and add sold if changed from preorder to shipped
         if ($basket_previous_status === "preorder") {
+          // zaktualizuj ilość kart zarezerwowanych
           update_post_meta( $card_name->ID, "cards_reserved", $reserved_cards - $card_amount, $reserved_cards );
+          // zaktualizuj ilość kart dostępnych
+          update_post_meta( $card_name->ID, "ilosc", $available_cards - $card_amount, $available_cards );
+          // zaktualizuj ilość kart sprzedanych
           update_post_meta( $card_name->ID, "sprzedane", $sold_cards + $card_amount, $sold_cards );
         }
         // add sold if changed from billed to shipped
-        else if ($basket_previous_status === "billed") {
-          update_post_meta( $card_name->ID, "sprzedane", $sold_cards + $card_amount, $sold_cards );          
-        }
+        // else if ($basket_previous_status === "billed") {
+        //   update_post_meta( $card_name->ID, "sprzedane", $sold_cards + $card_amount, $sold_cards );          
+        // }
 
         break;
 
@@ -1013,7 +1090,8 @@ function update_cards_amounts($basket_id, $basket_status, $basket_previous_statu
         }
         // remove sold if changed from shipped to billed
         else if ($basket_previous_status === "shipped") {
-          update_post_meta( $card_name->ID, "sprzedane", $sold_cards - $card_amount, $sold_cards );          
+          // zaktualizuj ilość kart sprzedanych o te, które właśnie zostały rozliczone
+          update_post_meta( $card_name->ID, "sprzedane", $sold_cards - $card_amount, $sold_cards );
         }
 
         break;
@@ -1030,48 +1108,49 @@ function update_cards_amounts($basket_id, $basket_status, $basket_previous_statu
         break;
       }
 
+      $return_data["basket-" . $basket_id][$card_name->ID]["dane_na_wyjsciu"]["ilosc_w_sklepie"] = get_post_meta( $card_name->ID, "ilosc", true );
+      $return_data["basket-" . $basket_id][$card_name->ID]["dane_na_wyjsciu"]["sprzedane"] = get_field("field_56825fd051b67", $card_name->ID);
+      $return_data["basket-" . $basket_id][$card_name->ID]["dane_na_wyjsciu"]["zarezerwowane"] = get_field("field_5964d04c485d3", $card_name->ID);
+
     }
+
+    return $return_data;
 
   }
 
-  function update_summaries($basket_id, $basket_status, $basket_previous_status) {
+}
 
-    $money = array(
-      "team"          => get_post_meta( $basket_id, "basket_team_sum", true ),
-      "leszek"        => get_post_meta( $basket_id, "basket_leszek_sum", true ),
-      "slawek"        => get_post_meta( $basket_id, "basket_slawek_sum", true ),
-      "total"         => get_post_meta( $basket_id, "basket_total_sum", true ),
-      );
+function update_summaries($basket_id, $basket_status, $basket_previous_status) {
 
-    $totals = array(
-      "team"          => get_field("billing_team", "options"),
-      "leszek"        => get_field("billing_leszek", "options"),
-      "slawek"        => get_field("billing_slawek", "options"),
-      "total"         => get_field("billing_total", "options"),
-      );
+  $money = array (
+    "team"          => get_post_meta( $basket_id, "basket_team_sum", true ),
+    "leszek"        => get_post_meta( $basket_id, "basket_leszek_sum", true ),
+    "slawek"        => get_post_meta( $basket_id, "basket_slawek_sum", true ),
+    "total"         => get_post_meta( $basket_id, "basket_total_sum", true ),
+    );
 
-    var_dump($basket_previous_status);
-    var_dump($basket_status);
-    var_dump($money);
-    var_dump($totals);
+  $totals = array (
+    "team"          => get_field("field_5964d0ad4c4d6", "options"),
+    "leszek"        => get_field("field_5964d0bd4c4d7", "options"),
+    "slawek"        => get_field("field_5964d0cd4c4d8", "options"),
+    "total"         => get_field("field_5964d09b4c4d5", "options"),
+    );
 
-    if ( $basket_previous_status = "preorder" && $basket_status === "shipped" ) {
+  if ( $basket_previous_status = "preorder" && $basket_status === "shipped" ) {
 
-      update_field("billing_team", $totals["team"] + $money["team"], "options");
-      update_field("billing_leszek", $totals["leszek"] + $money["leszek"], "options");
-      update_field("billing_slawek", $totals["slawek"] + $money["slawek"], "options");
-      update_field("billing_total", $totals["total"] + $money["shipping"] + $money["leszek"] + $money["team"] + $money["slawek"], "options");
+    update_field("field_5964d0ad4c4d6", $totals["team"] + $money["team"], "options");
+    update_field("field_5964d0bd4c4d7", $totals["leszek"] + $money["leszek"], "options");
+    update_field("field_5964d0cd4c4d8", $totals["slawek"] + $money["slawek"], "options");
+    update_field("field_5964d09b4c4d5", $totals["total"] + $money["shipping"] + $money["leszek"] + $money["team"] + $money["slawek"], "options");
 
-    }
-    else if ( $basket_previous_status = "shipped" && $basket_status === "billed" ) {
-
-      update_field("billing_team", $totals["team"] - $money["team"], "options");
-      update_field("billing_leszek", $totals["leszek"] - $money["leszek"], "options");
-      update_field("billing_slawek", $totals["slawek"] - $money["slawek"], "options");
-      update_field("billing_total", $totals["total"] - $money["shipping"] - $money["leszek"] - $money["team"] - $money["slawek"], "options");
-
-    }
   }
+  else if ( $basket_previous_status = "shipped" && $basket_status === "billed" ) {
 
+    update_field("field_5964d0ad4c4d6", $totals["team"] - $money["team"], "options");
+    update_field("field_5964d0bd4c4d7", $totals["leszek"] - $money["leszek"], "options");
+    update_field("field_5964d0cd4c4d8", $totals["slawek"] - $money["slawek"], "options");
+    update_field("field_5964d09b4c4d5", $totals["total"] - $money["shipping"] - $money["leszek"] - $money["team"] - $money["slawek"], "options");
+
+  }
 }
 ?>

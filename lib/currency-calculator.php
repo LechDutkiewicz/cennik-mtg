@@ -39,10 +39,13 @@ class ForeignExchange
 	}
 };
 
+/* Zwiększenie ceny do liczby całkowitej, minimalna cena 1 pln */
+
+
 function fmtMoney($amount)
 {
 	if ( $amount < 1 ) {
-		return round($amount, 1, PHP_ROUND_HALF_UP);
+		return 1;
 	} else {
 		return round($amount, 0, PHP_ROUND_HALF_UP);
 	}

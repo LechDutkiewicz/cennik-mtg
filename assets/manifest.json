@@ -26,6 +26,6 @@
     }
   },
   "config": {
-    "devUrl": "http://example.dev"
+    "devUrl": "http://localhost/mtg_app"
   }
 }

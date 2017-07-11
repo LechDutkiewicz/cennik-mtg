@@ -31,26 +31,10 @@ function MKM_API( $data, $is_foil = null ) {
 $method             = "GET";
 $url                = isset( $api_url ) ? $api_url : "https://www.mkmapi.eu/ws/v1.1/products/" . standarize_card_name( $card_title ) . "/1/1/true";
 
-// $url                = "https://www.mkmapi.eu/ws/v1.1/" . get_field("edycja", $data) . "/1/" . get_the_title($data);
-// $appToken           = "l72p6jX7eWUvIKgK";
-// $appSecret          = "KkudGqMxpwlWojpAbW2bVtRWMj9XTFyk";
-// $accessToken        = "HISmnZ3fn4VZWpN2QDUxQHaeySfYivcZ";
-// $accessSecret       = "Li20lTmHJaBPUFvCIPM0rHXBAoEr7nKm";
-
-// $appToken           = "gpkdJkgxC89CAGZr";
-// $appSecret          = "7FBV8MSZ3AnfN7PdVCWhlyeti3eexepK";
-// $accessToken        = "yxS0RkdYEmI3as035ZrmVJo6ShyLk4ZT";
-// $accessSecret       = "HHWGBpEnTsKsc4hJrmoBHgKjQwEdaebF";
-
-// $appToken           = "FavKlMtxq6Ud02lW";
-// $appSecret          = "eBjJf6VHa6MglHx4wAKWmJk3e8etJ3C4";
-// $accessToken        = "plE39yzWe0by8tLZ4sUF8bzSrekaT8az";
-// $accessSecret       = "FmSjDUjT1J8clTRBmRxQJtCqzm7VapfP";
-
-$appToken           = "2AoMhbIlzAmymiVY";
-$appSecret          = "DRvyhDFFpsWrobtkkdNqrAAfl5QUMkfc";
-$accessToken        = "MAH0bnWObwz1Tq8eHXtWKk9bTq4Lpxxj";
-$accessSecret       = "DgxM1AsoCSEm848oHAlBRz1y2Ffm3SQG";
+$appToken           = get_field("app_token", "options");
+$appSecret          = get_field("app_secret", "options");
+$accessToken        = get_field("access_token", "options");
+$accessSecret       = get_field("access_secret", "options");
 
 $nonce              = uniqid();
 // $timestamp          = "1407917892";

@@ -43,7 +43,7 @@ $sage_includes = [
   // $prefix . 'extensions/mobble/mobble.php',                        // Mobble plugin mobile devices detection https://github.com/scottsweb/mobble
   // $prefix . 'extensions/advanced-custom-fields/acf.php',           // Advanced Custom Fields Extension
   // $prefix . 'extensions/acf-font-awesome/acf-font-awesome.php',    // Advanced Custom Fields Font Awesome Extension
-  $prefix . 'extensions/acf-repeater/acf-repeater.php',            // Advanced Custom Fields Repeater Extension
+  // $prefix . 'extensions/acf-repeater/acf-repeater.php',            // Advanced Custom Fields Repeater Extension
   // $prefix . 'extensions/acf-options-page/acf-options-page.php',    // Advanced Custom Fields Repeater Extension
   // $prefix . 'extensions/acf-categories/acf-categories.php',        // Advanced Custom Fields Categories Extension
   // $prefix . 'extensions/acf-gallery/acf-gallery.php',              // Advanced Custom Fields Gallery Extension

@@ -18,15 +18,22 @@ if ( ! wp_next_scheduled( 'update_cards' ) ) {
 
 add_action( 'update_cards', 'update_cards_prices' );
 
-function update_cards_prices() {
+function update_cards_prices( $posts_per_page = 100 ) {
 
-	$step = get_field( "krok_dla_cron", "options" );
+	if ( $posts_per_page > 0 ) {
+
+		$step = get_field( "krok_dla_cron", "options" );
+
+	} else {
+
+		$step = 1;
+	}
 
 // WP_Query arguments
 	$args = array (
 		'post_type'              	=> array( 'post' ),
 		'paged'					 	=> $step,
-		'posts_per_page'			=> 50,
+		'posts_per_page'			=> $posts_per_page,
 		'order'                  	=> 'ASC',
 		'orderby'                	=> 'title',
 		'meta_query'             	=> array(
@@ -88,4 +95,7 @@ function update_cards_prices() {
 	update_field( "ostatnie_wykonanie", sprintf(__( "Script was completed last time at: %s", "sage"), $date->format("d-m-Y H:i:s"), "options") );
 	?>
 
-	<?php }
+	<?php
+
+	return get_field( "krok_dla_cron", "options" );
+}

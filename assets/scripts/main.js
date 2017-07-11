@@ -176,6 +176,7 @@ adminEvents = {
     adminEvents.changeAmount();
     adminEvents.loadSearchedCard();
     adminEvents.buttonNumbersInit();
+    adminEvents.updateLikeCron();
 
   },
   postDelete: function() {
@@ -201,6 +202,7 @@ adminEvents = {
       var t = $(this);
       $.post(ajaxurl, "action=update_post&post_id=" + t.parents("[data-id]").data("id") + "&is_foil=" + t.parents("[data-id]").data("foil"), function(data){
         data = JSON.parse(data);
+        console.log(data);
         if (data.success === 1) {
           t.parents("[data-id]").fadeOut(500, function(){
             var k = $(this);
@@ -482,6 +484,20 @@ btnNrArgs: {
   inputNumber: $('.input-number:not(.bound)'),
 
 },
+updateLikeCron: function() {
+
+  $("#update_50").click(function(e){
+    e.preventDefault();
+    var t = $(this);
+    t.addClass("working");
+    $.post(ajaxurl, "action=update_cron_posts", function(data){
+      data = JSON.parse(data);
+      t.removeClass("working");
+      console.log(data);
+    });
+  });
+
+},
 buttonNumbersInit: function() {
 
   adminEvents.buttonNumbersArgsSetup();
@@ -680,7 +696,7 @@ var basket = {
 
       var t = $(this);
 
-     t.click(function() {
+      t.click(function() {
 
         if ( confirm( "Confirm change of cart status" ) ) {
 
@@ -699,6 +715,8 @@ var basket = {
             data: callParams,
             success: function(response) {
               data = JSON.parse(response);
+
+              console.log(data);
               basket.args.basketMessages.fadeOut(500, function(){
                 basket.args.basketMessages.html("<div data-alert='' class='alert-box success'>" + data.value + "<a href='#'' class='close'>×</a></div>");
                 basket.args.basketMessages.fadeIn(500);
@@ -817,6 +835,9 @@ var basket = {
         data: callParams,
         success: function(response) {
           data = JSON.parse(response);
+
+          console.log(data);
+
           basket.args.basketMessages.fadeOut(500, function(){
             basket.args.basketMessages.html("<div data-alert='' class='alert-box success'>" + data.value + "<a href='#'' class='close'>×</a></div>");
             basket.args.basketMessages.fadeIn(500);
@@ -868,6 +889,8 @@ var basket = {
         url: ajaxurl,
         data: callParams,
         success: function(response) {
+
+          // console.log(response);
 
           basket.args.basketCardsList.find("tbody.list").append(response);
 

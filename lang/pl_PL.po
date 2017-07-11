@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-11-15 17:00+0100\n"
+"POT-Creation-Date: 2017-07-11 21:40+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.12\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Basepath: ..\n"
@@ -62,225 +62,80 @@ msgstr "piątek"
 msgid "Name of last updated card: "
 msgstr "Nazwa ostatnio zaktualizowanej karty:"
 
+#: index.php:49
+msgid "Update 100 prices"
+msgstr "Zaktualizuj 100 cen"
+
 #: lib/ajax-methods.php:13 lib/ajax-methods.php:161 lib/ajax-methods.php:181
-#: lib/ajax-methods.php:203 lib/ajax-methods.php:235 lib/ajax-methods.php:281
-#: lib/ajax-methods.php:303 lib/ajax-methods.php:319 lib/ajax-methods.php:344
-#: lib/ajax-methods.php:360 lib/ajax-methods.php:385 lib/ajax-methods.php:401
-#: lib/ajax-methods.php:426 lib/ajax-methods.php:467 lib/ajax-methods.php:524
-#: lib/ajax-methods.php:541 lib/ajax-methods.php:664
+#: lib/ajax-methods.php:203 lib/ajax-methods.php:258 lib/ajax-methods.php:304
+#: lib/ajax-methods.php:326 lib/ajax-methods.php:342 lib/ajax-methods.php:367
+#: lib/ajax-methods.php:383 lib/ajax-methods.php:408 lib/ajax-methods.php:424
+#: lib/ajax-methods.php:449 lib/ajax-methods.php:490 lib/ajax-methods.php:547
+#: lib/ajax-methods.php:564 lib/ajax-methods.php:687
 msgid "Cannot send email to destination. No parameter receive form AJAX call."
 msgstr ""
 
-#: lib/ajax-methods.php:438
+#: lib/ajax-methods.php:461
 msgid "You're trying to sell more cards than you have available"
 msgstr "Próbujesz sprzedać więcej kart niż jest dostępne"
 
-#: lib/ajax-methods.php:450
+#: lib/ajax-methods.php:473
 msgid "Please change amount of sold cards first"
 msgstr "Proszę zmień najpierw ilość kart sprzedanych"
 
-#: lib/ajax-methods.php:456
+#: lib/ajax-methods.php:479
 msgid "You're trying to sell zero cards"
 msgstr "Próbujesz sprzedać zero kart"
 
-#: lib/ajax-methods.php:511 lib/ajax-methods.php:687
+#: lib/ajax-methods.php:534 lib/ajax-methods.php:710
 msgid "You've reached end of internet"
 msgstr "Osiągnięto koniec Internetu"
 
-#: lib/ajax-methods.php:612
+#: lib/ajax-methods.php:635
 msgid "Succesfully added"
 msgstr "Pomyślnie dodano"
 
-#: lib/ajax-methods.php:701 lib/ajax-methods.php:783 lib/ajax-methods.php:828
-#: lib/ajax-methods.php:856 lib/ajax-methods.php:900 lib/ajax-methods.php:945
+#: lib/ajax-methods.php:724 lib/ajax-methods.php:817 lib/ajax-methods.php:872
+#: lib/ajax-methods.php:900 lib/ajax-methods.php:958 lib/ajax-methods.php:1003
 #: templates/summaries-by-price.php:49 templates/summaries-by-price.php:52
 #: templates/summaries.php:48 templates/summaries.php:51
 msgid "Error"
 msgstr "Błąd"
 
-#: lib/ajax-methods.php:768
+#: lib/ajax-methods.php:799
 msgid "Success"
 msgstr "Powodzenie"
 
-#: lib/ajax-methods.php:872
+#: lib/ajax-methods.php:926
 #, php-format
 msgid "Cart nr %s status changed to %s"
 msgstr "Koszyka nr %s stan został zmieniony na %s"
 
-#: lib/ajax-methods.php:878
+#: lib/ajax-methods.php:934
 msgid "You haven't changed cart status."
 msgstr "Nie zmieniłeś statusu koszyka."
 
-#: lib/ajax-methods.php:911 lib/custom-fields.php:162
-#: templates/search-basket.php:117
+#: lib/ajax-methods.php:969 templates/search-basket.php:117
 msgid "Shipped"
 msgstr "Wysłane"
 
-#: lib/ajax-methods.php:915 lib/custom-fields.php:163
-#: templates/search-basket.php:118
+#: lib/ajax-methods.php:973 templates/search-basket.php:118
 msgid "Billed"
 msgstr "Rozliczone"
 
-#: lib/ajax-methods.php:919 lib/custom-fields.php:160
-#: templates/search-basket.php:116 templates/search-basket.php:120
+#: lib/ajax-methods.php:977 templates/search-basket.php:116
+#: templates/search-basket.php:120
 msgid "Pre order"
 msgstr "Przedsprzedaż"
 
-#: lib/ajax-methods.php:955
+#: lib/ajax-methods.php:1013
 msgid "Succesfully deleted post."
 msgstr "Pomyślnie usunięty post."
 
-#: lib/cron.php:88
+#: lib/cron.php:95
 #, php-format
 msgid "Script was completed last time at: %s"
 msgstr "Ostatnie wykonanie skryptu: %s"
-
-#: lib/custom-fields.php:14
-msgid "Billing summaries"
-msgstr "Podsumowania rozliczeń"
-
-#: lib/custom-fields.php:18 templates/search-basket.php:55
-#: templates/search-basket.php:79
-msgid "Total"
-msgstr "Łącznie"
-
-#: lib/custom-fields.php:24 templates/search-basket.php:67
-msgid "Team"
-msgstr "Zespół"
-
-#: lib/custom-fields.php:30 templates/search-basket.php:71
-msgid "Leszek"
-msgstr "Leszek"
-
-#: lib/custom-fields.php:36 templates/search-basket.php:75
-msgid "Sławek"
-msgstr "Sławek"
-
-#: lib/custom-fields.php:73
-msgid "Picked cards"
-msgstr "Wybrane karty"
-
-#: lib/custom-fields.php:77
-msgid "Card"
-msgstr "Karta"
-
-#: lib/custom-fields.php:80
-msgid "Add next card"
-msgstr "Dodaj następną kartę"
-
-#: lib/custom-fields.php:86 templates/search-basket.php:40
-msgid "Name"
-msgstr "Nazwa"
-
-#: lib/custom-fields.php:96 lib/custom-fields.php:381
-#: templates/search-basket.php:44
-msgid "Price"
-msgstr "Cena"
-
-#: lib/custom-fields.php:103 lib/custom-fields.php:352
-msgid "Amount"
-msgstr "Ilość"
-
-#: lib/custom-fields.php:112
-msgid "Basket discount"
-msgstr "Zniżka"
-
-#: lib/custom-fields.php:120
-msgid "Basket shipping cost"
-msgstr "Koszty wysyłki"
-
-#: lib/custom-fields.php:128
-msgid "Basket team sum"
-msgstr "Suma teamu"
-
-#: lib/custom-fields.php:135
-msgid "Basket Leszek sum"
-msgstr "Suma Leszka"
-
-#: lib/custom-fields.php:142
-msgid "Basket Sławek sum"
-msgstr "Suma Sławka"
-
-#: lib/custom-fields.php:149
-msgid "Basket total sum"
-msgstr "Suma total"
-
-#: lib/custom-fields.php:156
-msgid "Basket status"
-msgstr "Status koszyka"
-
-#: lib/custom-fields.php:201
-msgid "Zmienne dla cron"
-msgstr "Zmienne dla cron"
-
-#: lib/custom-fields.php:205
-msgid "Step"
-msgstr "Krok"
-
-#: lib/custom-fields.php:211
-msgid "Last launch"
-msgstr "Ostatni lot"
-
-#: lib/custom-fields.php:217
-msgid "Last card"
-msgstr "Ostatnia karta"
-
-#: lib/custom-fields.php:255
-msgid "Card description"
-msgstr "Opis karty"
-
-#: lib/custom-fields.php:259
-msgid "Edition"
-msgstr "Edycja"
-
-#: lib/custom-fields.php:314 templates/search-basket.php:43
-msgid "Condition"
-msgstr "Stan"
-
-#: lib/custom-fields.php:330
-msgid "Language"
-msgstr "Język"
-
-#: lib/custom-fields.php:362
-msgid "Sold"
-msgstr "Sprzedane"
-
-#: lib/custom-fields.php:372
-msgid "Reserved"
-msgstr "Zarezerwowane"
-
-#: lib/custom-fields.php:391 templates/search-basket.php:53
-#: templates/search-basket.php:89
-msgid "Discount"
-msgstr "Zniżka"
-
-#: lib/custom-fields.php:402
-msgid "Notes"
-msgstr "Uwagi"
-
-#: lib/custom-fields.php:408
-msgid "Rarity"
-msgstr "Rzadkość"
-
-#: lib/custom-fields.php:427 templates/add-post.php:65
-msgid "Foil"
-msgstr "Foil"
-
-#: lib/custom-fields.php:434
-msgid "Ownership"
-msgstr "Właściciel"
-
-#: lib/custom-fields.php:474
-msgid "Media"
-msgstr "Media"
-
-#: lib/custom-fields.php:478
-msgid "Image link"
-msgstr "Link zdjęcia"
-
-#: lib/custom-fields.php:484
-msgid "Card link"
-msgstr "Link karty"
 
 #: lib/extras.php:31
 msgid "Continued"
@@ -452,6 +307,10 @@ msgstr "Komentarze"
 msgid "Regular"
 msgstr "Regularna"
 
+#: templates/add-post.php:65
+msgid "Foil"
+msgstr "Foil"
+
 #: templates/add-post.php:70
 msgid "Card owner"
 msgstr "Właściciel karty"
@@ -531,6 +390,10 @@ msgstr "Wczytaj koszyk"
 msgid "Customer's name"
 msgstr "Imię klienta"
 
+#: templates/search-basket.php:40
+msgid "Name"
+msgstr "Nazwa"
+
 #: templates/search-basket.php:41
 msgid "Expansion"
 msgstr "Dodatek"
@@ -538,6 +401,14 @@ msgstr "Dodatek"
 #: templates/search-basket.php:42
 msgid "Extras"
 msgstr "Uwagi"
+
+#: templates/search-basket.php:43
+msgid "Condition"
+msgstr "Stan"
+
+#: templates/search-basket.php:44
+msgid "Price"
+msgstr "Cena"
 
 #: templates/search-basket.php:45
 msgid "Available"
@@ -547,9 +418,29 @@ msgstr "Dostępne"
 msgid "Sell"
 msgstr "Sprzedaj"
 
+#: templates/search-basket.php:53 templates/search-basket.php:89
+msgid "Discount"
+msgstr "Zniżka"
+
 #: templates/search-basket.php:54 templates/search-basket.php:101
 msgid "KP"
 msgstr "KP"
+
+#: templates/search-basket.php:55 templates/search-basket.php:79
+msgid "Total"
+msgstr "Łącznie"
+
+#: templates/search-basket.php:67
+msgid "Team"
+msgstr "Zespół"
+
+#: templates/search-basket.php:71
+msgid "Leszek"
+msgstr "Leszek"
+
+#: templates/search-basket.php:75
+msgid "Sławek"
+msgstr "Sławek"
 
 #: templates/search-basket.php:113
 msgid "Cart status"
@@ -613,6 +504,93 @@ msgstr "Wszystkie karty: %s"
 #, php-format
 msgid "Total value: %s"
 msgstr "Łączna wartość: %s"
+
+#~ msgid "Update 100 cards"
+#~ msgstr "Zaktualizuj 100 "
+
+#~ msgid "Update next 100 cards"
+#~ msgstr "Aktualizacja kolejnych 100 kart"
+
+#~ msgid "Billing summaries"
+#~ msgstr "Podsumowania rozliczeń"
+
+#~ msgid "Picked cards"
+#~ msgstr "Wybrane karty"
+
+#~ msgid "Card"
+#~ msgstr "Karta"
+
+#~ msgid "Add next card"
+#~ msgstr "Dodaj następną kartę"
+
+#~ msgid "Amount"
+#~ msgstr "Ilość"
+
+#~ msgid "Basket discount"
+#~ msgstr "Zniżka"
+
+#~ msgid "Basket shipping cost"
+#~ msgstr "Koszty wysyłki"
+
+#~ msgid "Basket team sum"
+#~ msgstr "Suma teamu"
+
+#~ msgid "Basket Leszek sum"
+#~ msgstr "Suma Leszka"
+
+#~ msgid "Basket Sławek sum"
+#~ msgstr "Suma Sławka"
+
+#~ msgid "Basket total sum"
+#~ msgstr "Suma total"
+
+#~ msgid "Basket status"
+#~ msgstr "Status koszyka"
+
+#~ msgid "Zmienne dla cron"
+#~ msgstr "Zmienne dla cron"
+
+#~ msgid "Step"
+#~ msgstr "Krok"
+
+#~ msgid "Last launch"
+#~ msgstr "Ostatni lot"
+
+#~ msgid "Last card"
+#~ msgstr "Ostatnia karta"
+
+#~ msgid "Card description"
+#~ msgstr "Opis karty"
+
+#~ msgid "Edition"
+#~ msgstr "Edycja"
+
+#~ msgid "Language"
+#~ msgstr "Język"
+
+#~ msgid "Sold"
+#~ msgstr "Sprzedane"
+
+#~ msgid "Reserved"
+#~ msgstr "Zarezerwowane"
+
+#~ msgid "Notes"
+#~ msgstr "Uwagi"
+
+#~ msgid "Rarity"
+#~ msgstr "Rzadkość"
+
+#~ msgid "Ownership"
+#~ msgstr "Właściciel"
+
+#~ msgid "Media"
+#~ msgstr "Media"
+
+#~ msgid "Image link"
+#~ msgstr "Link zdjęcia"
+
+#~ msgid "Card link"
+#~ msgstr "Link karty"
 
 #~ msgid "Script was completed last time at: "
 #~ msgstr "Skrypt został ostatnio wykonany o:"
