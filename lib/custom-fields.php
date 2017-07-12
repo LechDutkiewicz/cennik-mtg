@@ -2,42 +2,7 @@
 
 if(function_exists("register_field_group"))
 {
-  register_field_group(array (
-    'id' => 'acf_opcje-strony-tresci-na-forum',
-    'title' => 'Opcje Strony => treści na forum',
-    'fields' => array (
-      array (
-        'key' => 'field_56650a7e9759e',
-        'label' => 'Forum content',
-        'name' => 'forum_content',
-        'type' => 'textarea',
-        'instructions' => 'Wpisz treść na forum, która ma się pojawić przed listą kart',
-        'default_value' => '',
-        'placeholder' => '',
-        'maxlength' => '',
-        'rows' => '',
-        'formatting' => 'br',
-        ),
-      ),
-    'location' => array (
-      array (
-        array (
-          'param' => 'options_page',
-          'operator' => '==',
-          'value' => 'acf-options',
-          'order_no' => 0,
-          'group_no' => 0,
-          ),
-        ),
-      ),
-    'options' => array (
-      'position' => 'normal',
-      'layout' => 'default',
-      'hide_on_screen' => array (
-        ),
-      ),
-    'menu_order' => 0,
-    ));
+
   register_field_group(array (
     'id' => 'acf_post-karta-opis-karty',
     'title' => 'Post Karta => opis karty',
@@ -496,149 +461,17 @@ register_field_group(array (
     ),
   'menu_order' => 0,
   ));
-register_field_group(array (
-  'id' => 'acf_opcje-strony-rabaty',
-  'title' => 'Opcje Strony => rabaty',
-  'fields' => array (
-    array (
-      'key' => 'field_566502c74a0af',
-      'label' => 'Discount lp',
-      'name' => 'discount_lp',
-      'type' => 'number',
-      'default_value' => 0,
-      'placeholder' => '',
-      'prepend' => '',
-      'append' => '',
-      'min' => 0,
-      'max' => 1,
-      'step' => '0.05',
-      ),
-    array (
-      'key' => 'field_566502f44a0b0',
-      'label' => 'Discount mp',
-      'name' => 'discount_mp',
-      'type' => 'number',
-      'default_value' => 0,
-      'placeholder' => '',
-      'prepend' => '',
-      'append' => '',
-      'min' => 0,
-      'max' => 1,
-      'step' => '0.05',
-      ),
-    array (
-      'key' => 'field_566503074a0b1',
-      'label' => 'Discount hp',
-      'name' => 'discount_hp',
-      'type' => 'number',
-      'default_value' => 0,
-      'placeholder' => '',
-      'prepend' => '',
-      'append' => '',
-      'min' => 0,
-      'max' => 1,
-      'step' => '0.05',
-      ),
-    array (
-      'key' => 'field_5667d52339fff',
-      'label' => 'Cena karty foil',
-      'name' => 'cena_karty_foil',
-      'type' => 'number',
-      'default_value' => '',
-      'placeholder' => '',
-      'prepend' => '',
-      'append' => '',
-      'min' => 0,
-      'max' => 1,
-      'step' => '0.05',
-      ),
-    ),
-  'location' => array (
-    array (
-      array (
-        'param' => 'options_page',
-        'operator' => '==',
-        'value' => 'acf-options',
-        'order_no' => 0,
-        'group_no' => 0,
-        ),
-      ),
-    ),
-  'options' => array (
-    'position' => 'normal',
-    'layout' => 'default',
-    'hide_on_screen' => array (
-      ),
-    ),
-  'menu_order' => 1,
-  ));
 
 register_field_group(array (
   'id' => 'acf_opcje-strony-zmienne-cron',
   'title' => 'Opcje Strony => zmienne cron',
   'fields' => array (
     array (
-      'key' => 'field_5665034c05193',
-      'label' => 'Krok dla cron',
-      'name' => 'krok_dla_cron',
-      'type' => 'number',
-      'instructions' => 'Nie zmieniaj tej liczby',
-      'default_value' => 1,
-      'placeholder' => '',
-      'prepend' => '',
-      'append' => '',
-      'min' => '',
-      'max' => '',
-      'step' => 1,
+      'key' => 'field_9FRfUs5rbdnlwy0N',
+      'label' => 'Rozliczenia',
+      'name' => 'tab_1',
+      'type' => 'tab',
       ),
-    array (
-      'key' => 'field_566560c2a5440',
-      'label' => 'ostatnie wykonanie',
-      'name' => 'ostatnie_wykonanie',
-      'type' => 'text',
-      'default_value' => '',
-      'placeholder' => '',
-      'prepend' => '',
-      'append' => '',
-      'formatting' => 'html',
-      'maxlength' => '',
-      ),
-    array (
-      'key' => 'field_56a884751b8d0',
-      'label' => 'ostatnia karta',
-      'name' => 'ostatnia_karta',
-      'type' => 'text',
-      'default_value' => '',
-      'placeholder' => '',
-      'prepend' => '',
-      'append' => '',
-      'formatting' => 'html',
-      'maxlength' => '',
-      ),
-    ),
-  'location' => array (
-    array (
-      array (
-        'param' => 'options_page',
-        'operator' => '==',
-        'value' => 'acf-options',
-        'order_no' => 0,
-        'group_no' => 0,
-        ),
-      ),
-    ),
-  'options' => array (
-    'position' => 'normal',
-    'layout' => 'default',
-    'hide_on_screen' => array (
-      ),
-    ),
-  'menu_order' => 5,
-  ));
-register_field_group(array (
-  'id' => 'acf_opcje-strony-podsumowania-wyplat',
-  'title' => 'Opcje Strony => podsumowania wypłat',
-  'fields' => array (
     array (
       'key' => 'field_5964d09b4c4d5',
       'label' => 'Łącznie',
@@ -691,30 +524,12 @@ register_field_group(array (
       'max' => '',
       'step' => 1,
       ),
-    ),
-  'location' => array (
     array (
-      array (
-        'param' => 'options_page',
-        'operator' => '==',
-        'value' => 'acf-options',
-        'order_no' => 0,
-        'group_no' => 0,
-        ),
+      'key' => 'field_6MvSMqKxMNazkZ',
+      'label' => 'MKM API keys',
+      'name' => 'tab_2',
+      'type' => 'tab',
       ),
-    ),
-  'options' => array (
-    'position' => 'normal',
-    'layout' => 'default',
-    'hide_on_screen' => array (
-      ),
-    ),
-  'menu_order' => 15,
-  ));
-register_field_group(array (
-  'id' => 'acf_opcje-strony-mkm-api',
-  'title' => 'Opcje Strony => mkm API',
-  'fields' => array (
     array (
       'key' => 'field_5964d33145cf6',
       'label' => 'Token aplikacjii',
@@ -763,26 +578,146 @@ register_field_group(array (
       'formatting' => 'html',
       'maxlength' => '',
       ),
-    ),
-  'location' => array (
     array (
-      array (
-        'param' => 'options_page',
-        'operator' => '==',
-        'value' => 'acf-options',
-        'order_no' => 0,
-        'group_no' => 0,
-        ),
+      'key' => 'field_4sKbSMA9',
+      'label' => 'Szablon na forum',
+      'name' => 'tab_3',
+      'type' => 'tab',
+      ),
+    array (
+      'key' => 'field_56650a7e9759e',
+      'label' => 'Forum content',
+      'name' => 'forum_content',
+      'type' => 'textarea',
+      'instructions' => 'Wpisz treść na forum, która ma się pojawić przed listą kart',
+      'default_value' => '',
+      'placeholder' => '',
+      'maxlength' => '',
+      'rows' => '',
+      'formatting' => 'br',
+      ),
+    array (
+      'key' => 'field_Lyo9p',
+      'label' => 'Rabaty / stan karty',
+      'name' => 'tab_4',
+      'type' => 'tab',
+      ),
+    array (
+      'key' => 'field_566502c74a0af',
+      'label' => 'Discount lp',
+      'name' => 'discount_lp',
+      'type' => 'number',
+      'default_value' => 0,
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'min' => 0,
+      'max' => 1,
+      'step' => '0.05',
+      ),
+    array (
+      'key' => 'field_566502f44a0b0',
+      'label' => 'Discount mp',
+      'name' => 'discount_mp',
+      'type' => 'number',
+      'default_value' => 0,
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'min' => 0,
+      'max' => 1,
+      'step' => '0.05',
+      ),
+    array (
+      'key' => 'field_566503074a0b1',
+      'label' => 'Discount hp',
+      'name' => 'discount_hp',
+      'type' => 'number',
+      'default_value' => 0,
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'min' => 0,
+      'max' => 1,
+      'step' => '0.05',
+      ),
+    array (
+      'key' => 'field_5667d52339fff',
+      'label' => 'Cena karty foil',
+      'name' => 'cena_karty_foil',
+      'type' => 'number',
+      'default_value' => '',
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'min' => 0,
+      'max' => 1,
+      'step' => '0.05',
+      ),
+    array (
+      'key' => 'field_Fb9qhJEmv0WUuSobu6',
+      'label' => 'Cron',
+      'name' => 'tab_5',
+      'type' => 'tab',
+      ),
+    array (
+      'key' => 'field_5665034c05193',
+      'label' => 'Krok dla cron',
+      'name' => 'krok_dla_cron',
+      'type' => 'number',
+      'instructions' => 'Nie zmieniaj tej liczby',
+      'default_value' => 1,
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'min' => '',
+      'max' => '',
+      'step' => 1,
+      ),
+    array (
+      'key' => 'field_566560c2a5440',
+      'label' => 'ostatnie wykonanie',
+      'name' => 'ostatnie_wykonanie',
+      'type' => 'text',
+      'default_value' => '',
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'formatting' => 'html',
+      'maxlength' => '',
+      ),
+    array (
+      'key' => 'field_56a884751b8d0',
+      'label' => 'ostatnia karta',
+      'name' => 'ostatnia_karta',
+      'type' => 'text',
+      'default_value' => '',
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'formatting' => 'html',
+      'maxlength' => '',
       ),
     ),
-  'options' => array (
-    'position' => 'normal',
-    'layout' => 'default',
-    'hide_on_screen' => array (
+'location' => array (
+  array (
+    array (
+      'param' => 'options_page',
+      'operator' => '==',
+      'value' => 'acf-options',
+      'order_no' => 0,
+      'group_no' => 0,
       ),
     ),
-  'menu_order' => 20,
-  ));
+  ),
+'options' => array (
+  'position' => 'normal',
+  'layout' => 'no_box',
+  'hide_on_screen' => array (
+    ),
+  ),
+'menu_order' => 5,
+));
 }
 
 ?>

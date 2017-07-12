@@ -68,6 +68,16 @@ button,
 		@include animation( loading-stripes 2s linear infinite );
 		background-size: 50px 50px;
 	}
+	i + span {
+		margin-left: 5px;
+	}
+	i.dashicons {
+		color: inherit;
+	}
+	i, span {
+		display: inline-block;
+		vertical-align: middle;
+	}
 }
 
 @include keyframes(loading-stripes) {

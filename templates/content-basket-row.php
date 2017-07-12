@@ -29,9 +29,13 @@ $amount = get_post_meta( $post->ID, "ilosc")[0];
 
 		<?php if ( $link = get_post_meta($post->ID, "link_do_karty") ) { ?>
 		<!-- link to mkm page with current card -->
-		<a href="<?php echo $link[0]; ?>" class="dashicons dashicons-admin-links" title="Zobacz <?php the_title(); ?> na MKM" target="_blank" data-email-swap></a>
+		<a href="<?php echo $link[0]; ?>" class="" title="Zobacz <?php the_title(); ?> na MKM" target="_blank" data-email-swap>
+			<i class="dashicons dashicons-admin-links text-success"></i>
+		</a>
 		<!-- link to edit current card in cms -->
-		<a href="wp-admin/post.php?post=<?php echo $post->ID;?>&action=edit" class="dashicons dashicons-edit" data-email-swap></a>
+		<a href="wp-admin/post.php?post=<?php echo $post->ID;?>&action=edit" class="" data-email-swap>
+			<i class="dashicons dashicons-edit text-warning"></i>
+		</a>
 		<?php } ?>
 	</td>
 	<!-- card expansion -->
@@ -43,10 +47,10 @@ $amount = get_post_meta( $post->ID, "ilosc")[0];
   <td data-email-swap>
     <span class="Własność"><?php echo array_key_exists( 0, $owner ) ? $owner[0] : __( "Unset", "sage" ); ?></span>
     <a href="#" class="post-update" title="<?php _e("Update card price"); ?>">
-      <i class="dashicons dashicons-update"></i>
+      <i class="dashicons dashicons-update text-primary"></i>
     </a>
     <a href="#" class="post-hide" title="<?php _e("Remove from basket"); ?>">
-      <i class="dashicons dashicons-no"></i>
+      <i class="dashicons dashicons-no text-alert"></i>
     </a>
   </td>
 	<!-- card condition -->

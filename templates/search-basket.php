@@ -149,13 +149,13 @@ $meta_array = Utils\get_meta_headers();
     <div class="column small-8 text-right">
       <ul class="button-group">
         <li>
-          <button id="remove-basket" class="hide alert small radius" data-basket-id=""><i class="dashicons dashicons-trash"></i>&nbsp;<?php _e( 'Remove cart', 'sage' ); ?></button>
+          <button id="remove-basket" class="hide alert small radius" data-basket-id=""><i class="dashicons dashicons-trash"></i><span><?php _e( 'Remove cart', 'sage' ); ?></span></button>
         </li>
         <li>
-          <button id="email-friendly" class="success small radius"><i class="dashicons dashicons-email-alt"></i>&nbsp;<?php _e( 'E-mail view', 'sage' ); ?></button>
+          <button id="email-friendly" class="success small radius"><i class="dashicons dashicons-email-alt"></i><span><?php _e( 'E-mail view', 'sage' ); ?></span></button>
         </li>
         <li>
-          <button id="save-basket" class="info small radius"><i class="dashicons dashicons-plus-alt"></i>&nbsp;<?php _e( 'Save cart', 'sage' ); ?></button>
+          <button id="save-basket" class="info small radius"><i class="dashicons dashicons-plus-alt"></i><span><?php _e( 'Save cart', 'sage' ); ?></span></button>
         </li>
       </ul>
     </div>
