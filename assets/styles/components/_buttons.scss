@@ -1,6 +1,7 @@
 $button-sup-tny:		rem-calc(2);
 
 .management-icons {
+	text-align: center;
 	& + * {
 		margin-top: rem-calc(15);
 	}
@@ -18,6 +19,37 @@ $button-sup-tny:		rem-calc(2);
 	width: 18px;
 	height: 18px;
 	font-size: 18px;
+	color: lighten($black, 20%);
+}
+
+.dashicons-x2 {
+	width: 36px;
+	height: 36px;
+	font-size: 36px;
+}
+
+.text-primary {
+	color: $primary-color;
+}
+
+.text-secondary {
+	color: $secondary-color;
+}
+
+.text-alert {
+	color: $alert-color;
+}
+
+.text-success {
+	color: $success-color;
+}
+
+.text-warning {
+	color: $warning-color;
+}
+
+.text-info {
+	color: $info-color;
 }
 
 .center {

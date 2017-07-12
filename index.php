@@ -22,6 +22,12 @@ if ( !is_user_logged_in() ) { ?>
 
   <div class="row">
 
+    <!-- <div class="column small-12"> -->
+      <!-- <div class="panel"> -->
+        <?php //get_template_part("templates/test", "query"); ?>
+      <!-- </div> -->
+    <!-- </div> -->
+
     <div class="column small-12 medium-4">
 
       <div class="panel">
@@ -43,10 +49,10 @@ if ( !is_user_logged_in() ) { ?>
           <?php the_field( "ostatnie_wykonanie", "options" ); ?>
         </p>
         <p>
-          <?php echo __( "Name of last updated card: ", "sage" ) . get_field( "ostatnia_karta", "options" ); ?>
+          <?= __( "Name of last updated card: ", "sage" ); ?> <span id="ostatnia_karta"><?= get_field( "ostatnia_karta", "options" ); ?></span>
         </p>
         <p>
-          <button id="update_50"><?= __("Update 100 prices", "sage"); ?></button>
+          <button class="button primary" id="update_50" data-anchor="<?= __("Update 50 prices", "sage"); ?>" data-updated-anchor="<?= __("Updated prices:", "sage"); ?>"><?= __("Update 50 prices", "sage"); ?></button>
         </p>
       </div>
 

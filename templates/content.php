@@ -19,8 +19,12 @@
         </span>
         <?php } ?>
         <?php if ( $link = get_post_meta($post->ID, "link_do_karty") ) { ?>
-        <a href="<?php echo $link[0]; ?>" class="dashicons dashicons-admin-links" title="Zobacz <?php the_title(); ?> na MKM" target="_blank"></a>
-        <a href="wp-admin/post.php?post=<?php echo $post->ID;?>&action=edit" class="dashicons dashicons-edit"></a>
+        <a href="<?php echo $link[0]; ?>" class="" title="Zobacz <?php the_title(); ?> na MKM" target="_blank">
+          <i class="dashicons dashicons-admin-links text-success"></i>
+        </a>
+        <a href="wp-admin/post.php?post=<?php echo $post->ID;?>&action=edit" class="">
+          <i class="dashicons dashicons-edit text-warning"></i>
+        </a>
         <?php } ?>
       </div>
       <?php foreach ( Utils\get_meta_array() as $key => $name ) { ?>
@@ -28,7 +32,7 @@
 
         <?php if ( $key === "Ilość" || $key === "Sprzedane" && is_user_logged_in() ) { ?>
 
-        <a href="#" class="dashicons-before dashicons-minus change-amount" data-change="<?php echo $key === "Ilość" ? "ilosc" : "sprzedane"; ?>" data-step="-1"></a>
+        <a href="#" class="change-amount" data-change="<?php echo $key === "Ilość" ? "ilosc" : "sprzedane"; ?>" data-step="-1"><i class="dashicons dashicons-minus text-alert"></i></a>
 
         <?php } ?>
 
@@ -36,7 +40,7 @@
 
         <?php if ( $key === "Ilość" || $key === "Sprzedane" && is_user_logged_in() ) { ?>
 
-        <a href="#" class="dashicons-before dashicons-plus change-amount" data-change="<?php echo $key === "Ilość" ? "ilosc" : "sprzedane"; ?>" data-step="1"></a>
+        <a href="#" class="change-amount" data-change="<?php echo $key === "Ilość" ? "ilosc" : "sprzedane"; ?>" data-step="1"><i class="dashicons dashicons-plus text-success"></i></a>
 
         <?php } ?>
         
@@ -52,8 +56,17 @@
       <a href="#" class="post-delete" title="<?php _e("Move card to trash", "sage"); ?>">
         <i class="dashicons dashicons-trash"></i>
       </a>
+      <a href="#" class="post-freeze" title="<?php _e("Freeze card price", "sage"); ?>">
+      <?php if ( get_field("price_frozen") ) { ?>
+        <i class="dashicons dashicons-lock text-alert"></i>
+        <i class="dashicons dashicons-unlock text-success hide"></i>
+      <?php } else { ?>
+        <i class="dashicons dashicons-lock text-alert hide"></i>
+        <i class="dashicons dashicons-unlock text-success"></i>
+      <?php } ?>
+      </a>
       <a href="#" class="post-update" title="<?php _e("Update card price", "sage"); ?>">
-        <i class="dashicons dashicons-update"></i>
+        <i class="dashicons dashicons-update dashicons-x2 text-primary"></i>
       </a>
     </div>
   </div>

@@ -167,6 +167,7 @@ adminEvents = {
 
     adminEvents.postDelete();
     adminEvents.postUpdate();
+    adminEvents.postFreeze();
     adminEvents.postSell();
     adminEvents.postInfo();
     adminEvents.postCondition();
@@ -188,6 +189,25 @@ adminEvents = {
         data = JSON.parse(data);
         if (data.success === 1) {
           t.parents("[data-id]").fadeOut();
+        } else {
+          alert(data);
+        }
+      });
+    });
+
+  },
+  postFreeze: function() {
+
+    $(".post-freeze:not(.bound)").addClass('bound').click(function(e){
+      e.preventDefault();
+      var t = $(this);
+      $.post(ajaxurl, "action=freeze_post&post_id=" + t.parents("[data-id]").data("id"), function(data){
+        data = JSON.parse(data);
+
+        console.log(data);
+
+        if (data.success === 1) {
+          t.find("i").toggleClass("hide");
         } else {
           alert(data);
         }
@@ -431,6 +451,7 @@ adminEvents = {
         t.data("paged", t.data("paged") + 1 ).parents(".content.active").find(".cards-list").append(data);
         adminEvents.postDelete();
         adminEvents.postUpdate();
+        adminEvents.postFreeze();
         adminEvents.postSell();
         adminEvents.postInfo();
         adminEvents.postCondition();
@@ -489,11 +510,20 @@ updateLikeCron: function() {
   $("#update_50").click(function(e){
     e.preventDefault();
     var t = $(this);
-    t.addClass("working");
+    t.addClass("working").attr("disabled", "disabled");
+    $("#ostatnia_karta").removeClass("text-alert");
+
     $.post(ajaxurl, "action=update_cron_posts", function(data){
       data = JSON.parse(data);
       t.removeClass("working");
       console.log(data);
+
+      $("#ostatnia_karta").html(data.updated_prices.ostatnia_karta).addClass("text-alert");
+      t.removeClass("primary").addClass("success").attr("disabled", false).html( t.data("updated-anchor") + " " + data.updated_prices.zaktualizowano);
+
+      setTimeout(function() {
+        t.removeClass("success").addClass("primary").html( t.data("anchor") );
+      }, 2000);
     });
   });
 

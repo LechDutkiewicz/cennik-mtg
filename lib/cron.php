@@ -18,7 +18,7 @@ if ( ! wp_next_scheduled( 'update_cards' ) ) {
 
 add_action( 'update_cards', 'update_cards_prices' );
 
-function update_cards_prices( $posts_per_page = 100 ) {
+function update_cards_prices( $posts_per_page = 50 ) {
 
 	if ( $posts_per_page > 0 ) {
 
@@ -31,16 +31,37 @@ function update_cards_prices( $posts_per_page = 100 ) {
 
 // WP_Query arguments
 	$args = array (
-		'post_type'              	=> array( 'post' ),
+		'post_type'              	=> array ( 'post' ),
 		'paged'					 	=> $step,
 		'posts_per_page'			=> $posts_per_page,
 		'order'                  	=> 'ASC',
 		'orderby'                	=> 'title',
-		'meta_query'             	=> array(
-			array(
-				'key'       => 'rarity',
-				'value'     => 'Error',
-				'compare'   => '!=',
+		'meta_query'             	=> array (
+			'relation'		=> 'OR',
+			array (
+				'relation'		=> 'AND',
+				array(
+					'key'       => 'rarity',
+					'value'     => 'Error',
+					'compare'   => '!=',
+					),
+				array (
+					'key'       => 'price_frozen',
+					'compare'   => 'NOT EXISTS',
+					)
+				),
+			array (
+				'relation'		=> 'AND',
+				array(
+					'key'       => 'rarity',
+					'value'     => 'Error',
+					'compare'   => '!=',
+					),
+				array (
+					'key'       => 'price_frozen',
+					'value'     => '1',
+					'compare'   => 'NOT LIKE',
+					)
 				),
 			),
 		'cache_results'          => true,
@@ -97,5 +118,10 @@ function update_cards_prices( $posts_per_page = 100 ) {
 
 	<?php
 
-	return get_field( "krok_dla_cron", "options" );
+	$return_data = array (
+		"ostatnia_karta"	=> get_field( "ostatnia_karta", "options" ),
+		"zaktualizowano"	=> $posts_per_page
+		);
+
+	return $return_data;
 }

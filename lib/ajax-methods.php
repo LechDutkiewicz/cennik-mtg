@@ -175,6 +175,32 @@ function mkm_trash_post() {
 add_action( 'wp_ajax_trash_post', 'mkm_trash_post' );
 add_action( 'wp_ajax_nopriv_trash_post', 'mkm_trash_post' );
 
+function mkm_freeze_post() {
+
+  if ( !isset( $_POST ) || empty( $_POST ) ) {
+    $return_data['value'] = __( 'Cannot send email to destination. No parameter receive form AJAX call.', 'bon' );
+    die( json_encode( $return_data ) );
+  }
+
+  $post_id = $_POST["post_id"];
+
+  $is_frozen = get_post_meta( $post_id, "price_frozen" );
+  $new_state = $is_frozen[0] ? 0 : 1;
+
+  update_post_meta( $post_id, "price_frozen", $new_state, $is_frozen[0] );
+
+  $return_data["czy_byla_zamrozona"] = $is_frozen[0];
+  $return_data["czy_jest_zamrozona"] = get_post_meta( $post_id, "price_frozen" );
+
+  $return_data["success"] = 1;
+  $return_data["post"] = $_POST;
+  die( json_encode( $return_data ) );
+
+}
+
+add_action( 'wp_ajax_freeze_post', 'mkm_freeze_post' );
+add_action( 'wp_ajax_nopriv_freeze_post', 'mkm_freeze_post' );
+
 function mkm_info_cards() {
 
   if ( !isset( $_POST ) || empty( $_POST ) ) {
@@ -235,7 +261,7 @@ function mkm_update_cron_posts() {
 
   $new_cron_step = update_cards_prices();
 
-  $return_data["krok_dla_cron"] = $new_cron_step;
+  $return_data["updated_prices"] = $new_cron_step;
 
   $finish_date = new dateTime();
 
