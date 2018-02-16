@@ -1,3 +1,9 @@
+@import "compass";
+@import 'compass/css3';
+@import 'compass/css3/animation';
+@import 'compass/css3/transition';
+@import 'compass/css3/transform';
+
 @import "common/_variables";
 
 // Foundation variables goes here, before including foundation framework

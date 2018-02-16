@@ -1,0 +1,115 @@
+/*====================================
+=            Card styling            =
+====================================*/
+
+.cards-list {
+	background-color: colorGet('black-pearl');
+}
+
+.card {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border: 1px dashed colorGet('porcelain');
+	border-width: 0 1px 1px 0;
+
+	@media #{$medium-up} {
+		&:nth-child(2n + 1) {
+			border-left-width: 1px;
+		}
+		&:nth-child(1),
+		&:nth-child(2) {
+			border-top-width: 1px;
+		}
+	}
+
+	@media #{$large-up} {
+		&:nth-child(2n + 1) {
+			border-left-width: 0px;
+		}
+		&:nth-child(4n + 1) {
+			border-left-width: 1px;
+		}
+		&:nth-child(3),
+		&:nth-child(4) {
+			border-top-width: 1px;
+		}
+	}
+
+	&:hover {
+		.card__info--hidden {
+			@media #{$large-up} {
+				display: block;
+			}
+		}
+	}
+	&__header {
+		position: relative;
+		overflow: hidden;
+		height: auto;
+		@media #{$medium-up} {
+			height: 450px;
+		}
+		@media #{$large-up} {
+			height: 300px;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	h5 {
+		color: colorGet('white');
+	}
+	h6 {
+		text-transform: uppercase;
+		font-size: 10px;
+		color: colorGet('porcelain');
+	}
+	&__base--info {
+		font-size: 13px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba(colorGet('black-pearl'), .9);
+		color: colorGet('white');
+		margin: 0;
+		padding: 8px 10px;
+	}
+	&__handy--icons {
+		position: absolute;
+		right: 0;
+		top: 0;
+		background: rgba(colorGet('black-pearl'), .9);
+		padding: 8px 10px;
+	}
+	&__info--hidden {
+		@media #{$large-up} {
+			display: none;
+		}
+	}
+}
+
+[data-foil=yellow] .card__header:before {
+	content: "";
+	position: absolute;
+	top: -110%;
+	left: -210%;
+	width: 200%;
+	height: 200%;
+	@include transform(rotate(30deg));
+	@include background-image(linear-gradient(to right, transparent 77%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.0) 100% ));
+	@include animation-name(shiny);
+	@include animation-duration(2s);
+	@include animation-timing-function( cubic-bezier(0.25,0.1,0.25,1) );
+	@include animation-iteration-count(infinite);
+}
+
+/*=====  End of Card styling  ======*/
+
+@include keyframes(shiny) {
+	to {
+		top: -30%;
+		left: -30%;
+	}
+}

@@ -14,9 +14,9 @@ main {
 .yellow {
 	color: $yellow;
 }
-[data-foil="yellow"] {
-	background-color: $yellow !important;
-}
+// [data-foil="yellow"] {
+// 	background-color: $yellow !important;
+// }
 
 .loading {
 	display: none;

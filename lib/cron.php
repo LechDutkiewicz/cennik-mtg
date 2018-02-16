@@ -7,7 +7,7 @@ function addCronMinutes($array) {
 	$array['minute'] = array(
 		'interval' => 60,
 		'display' => 'Once a Minute',
-		);
+	);
 	return $array;
 }
 add_filter('cron_schedules','addCronMinutes');
@@ -17,6 +17,15 @@ if ( ! wp_next_scheduled( 'update_cards' ) ) {
 }
 
 add_action( 'update_cards', 'update_cards_prices' );
+
+/**
+ *
+ * update_cards_prices
+ * aktualizuje określoną liczbę kart według pola zapisanego w cron
+ * @param $posts_per_page = ilość kart do zaktualizowania za jednym razem
+ *
+ */
+
 
 function update_cards_prices( $posts_per_page = 50 ) {
 
@@ -29,7 +38,7 @@ function update_cards_prices( $posts_per_page = 50 ) {
 		$step = 1;
 	}
 
-// WP_Query arguments
+	// WP_Query arguments
 	$args = array (
 		'post_type'              	=> array ( 'post' ),
 		'paged'					 	=> $step,
@@ -44,32 +53,32 @@ function update_cards_prices( $posts_per_page = 50 ) {
 					'key'       => 'rarity',
 					'value'     => 'Error',
 					'compare'   => '!=',
-					),
+				),
 				array (
 					'key'       => 'price_frozen',
 					'compare'   => 'NOT EXISTS',
-					)
-				),
+				)
+			),
 			array (
 				'relation'		=> 'AND',
 				array(
 					'key'       => 'rarity',
 					'value'     => 'Error',
 					'compare'   => '!=',
-					),
+				),
 				array (
 					'key'       => 'price_frozen',
 					'value'     => '1',
 					'compare'   => 'NOT LIKE',
-					)
-				),
+				)
 			),
+		),
 		'cache_results'          => true,
 		'update_post_meta_cache' => true,
 		'update_post_term_cache' => true,
-		);
+	);
 
-// The Query
+	// The Query
 	$query = new WP_Query( $args );
 	?>
 
@@ -82,17 +91,13 @@ function update_cards_prices( $posts_per_page = 50 ) {
 			// check if card is foil
 			$post_meta = get_post_meta($post->ID, 'foil');
 			$is_foil = empty($post_meta[0]) ? null : 1;
-			// run api script to update card's price
-			// print_r(array(get_the_title(), $post->ID, $is_foil));
-			// echo "<br>";
-			$price = MKM_update_price( $post->ID, $is_foil );
-			// echo "<hr>";
+
+			// zrób API call
+			$mkm_response = MKM_update_price( $post->ID, $is_foil );
 
 			if ( $query->current_post + 1 === $query->post_count ) {
-				update_field( "ostatnia_karta", get_the_title() . " - " . $price . " zł", "options" );
+				update_field( "ostatnia_karta", get_the_title() . " - " . $mkm_response["price_pln"] . " zł", "options" );
 			}
-			// print updated cards in table
-				// get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format());
 		}
 
 		// check if we're on the last page of posts
@@ -121,7 +126,7 @@ function update_cards_prices( $posts_per_page = 50 ) {
 	$return_data = array (
 		"ostatnia_karta"	=> get_field( "ostatnia_karta", "options" ),
 		"zaktualizowano"	=> $posts_per_page
-		);
+	);
 
 	return $return_data;
 }

@@ -230,7 +230,7 @@ if(function_exists("register_field_group"))
           2 => 'Rare',
           3 => 'Uncommon',
           4 => 'Common',
-          5 => 'Error',
+          5 => 'Inne',
           6 => 'Land',
           ),
         'other_choice' => 1,

@@ -8,8 +8,8 @@
   "private": true,
   "dependencies": {
     "modernizr": "2.8",
-    "foundation": "~5.5.2",
-    "protonet/jquery.inview": "~1.0.0"
+    "protonet/jquery.inview": "~1.0.0",
+    "foundation": "^5.5.3"
   },
   "overrides": {
     "modernizr": {

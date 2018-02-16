@@ -11,6 +11,45 @@ $brand-primary:         #27ae60;
 $yellow:				#f1c40f;
 $concrete:				#95a5a6;
 
+$alabaster:				#FAFAFA;
+
+/*=============================================
+=            Theme specific colors            =
+=============================================*/
+
+@function colorGet($colorName) {
+	@return map-get($themeColors, $colorName);
+}
+
+@mixin colorSet($colorName, $setting: color) {
+	$setting: colorGet($colorName);
+}
+
+$white:					#ffffff;
+$black:					#000000;
+
+$themeColors : (
+	'white':			$white,
+	'black':			$black,
+	'cinnabar':			#e74c3c,
+	'salmon':			#ff7f67,
+	'shiraz':			#ae0c13,
+	'gulf-stream':		#84bcad,
+	'cruise':			#b5efdf,
+	'patina':			#558c7e,
+	'buttercup':		#f1c40f,
+	'gorse':			#fff653,
+	'buddha-gold':		#ba9400,
+	'picked-bluewood':	#2c3e50,
+	'shuttle-gray':		#57687c,
+	'black-pearl':		#031828,
+	'silver-sand':		#bdc3c7,
+	'cascade':			#95a5a6,
+	'porcelain':		#ecf0f0
+	);
+
+/*=====  End of Theme specific colors  ======*/
+
 $nav-arrow-size:		40px;
 
 $table-row-padding: rem-calc(5 1) !default;

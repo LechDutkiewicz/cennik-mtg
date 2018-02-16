@@ -228,12 +228,12 @@ adminEvents = {
             var k = $(this);
             // update price field if request was made for basket
             if ( k.context.tagName === "TR" ) {
-              k.find('input[name^="price"]').val(data.price);
-              k.find('span[data-source^="price"]').html(data.price);
+              k.find('input[name^="price"]').val(data.card_data.price_pln);
+              k.find('span[data-source^="price"]').html(data.card_data.price_pln);
             }
             // update price field if request was made from cards list
             else if ( k.context.tagName === "DIV" ) {
-              k.find('.Cena span').html(data.price);
+              k.find('.Cena span').html(data.card_data.price_pln);
             }
             k.fadeIn(500);
           });
@@ -362,16 +362,16 @@ adminEvents = {
     $(".change-amount:not(.bound)").addClass('bound').click(function(e){
       e.preventDefault();
       var t = $(this);
-      $.post(ajaxurl, "action=update_quantity&post_id=" + t.parents("[data-id]").data("id") + "&value=" + t.data("step") + "&type=" + t.data("change") + "&previous=" + t.parent().find("span > small").html(), function(data){
+      $.post(ajaxurl, "action=update_quantity&post_id=" + t.parents("[data-id]").data("id") + "&value=" + t.data("step") + "&type=" + t.data("change") + "&previous=" + t.parent().find("span").html(), function(data){
         data = JSON.parse(data);
         if (data.success === 1) {
           if (data.quantity === 0 && t.data("change") === "ilosc") {
             t.parents("[data-id]").fadeOut(500);
           } else {
-            t.parents("[data-id]").find("[data-" + t.data('change') + "]").attr("data-" + t.data('change'), data.quantity).find("span > small").html(data.quantity);
+            t.parents("[data-id]").find("[data-" + t.data('change') + "]").attr("data-" + t.data('change'), data.quantity).find("span").html(data.quantity);
           }
           if( t.data("change") === "sprzedane" && !( data.quantity === data.prev_quantity && data.quantity === 0 ) ) {
-            var ilosc = t.parents("[data-id]").find("[data-ilosc]").find("span > small");
+            var ilosc = t.parents("[data-id]").find("[data-ilosc]").find("span");
             ilosc.html( parseInt(ilosc.html()) - parseInt(t.data("step")) ) ;
           }
         } else {
@@ -429,7 +429,7 @@ adminEvents = {
   loadMore: function() {
   // load more posts like jquery lazyload
 
-  $(".load-more:not(.bound)").addClass('bound').bind("inview", function(e, b, c, d){
+  $(".load-more:not(.bound)").addClass('bound').bind("click", function(e, b, c, d){
     e.preventDefault();
     var t = $(this),
     args = "&rarity=" + t.data("rarity");
@@ -448,7 +448,7 @@ adminEvents = {
       if (json) {
         t.addClass("disabled").html(json.message);
       } else {
-        t.data("paged", t.data("paged") + 1 ).parents(".content.active").find(".cards-list").append(data);
+        t.data("paged", t.data("paged") + 1 ).parents(".content.active").find(".cards-list").append("<div class='row'>"+data+"</div>");
         adminEvents.postDelete();
         adminEvents.postUpdate();
         adminEvents.postFreeze();

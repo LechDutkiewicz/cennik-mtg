@@ -51,4 +51,32 @@ function fmtMoney($amount)
 	}
 }
 
+function convertCurrency($amount) {
+
+	$url = "http://finance.google.com/finance/converter?a=$amount&from=EUR&to=PLN";
+    // Previously: $url = "http://www.google.com/finance/converter?a=1&from=GBP&to=$to";
+	$request = curl_init();
+	$timeOut = 0;
+	curl_setopt ($request, CURLOPT_URL, $url);
+	curl_setopt ($request, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt ($request, CURLOPT_USERAGENT,"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+	curl_setopt ($request, CURLOPT_CONNECTTIMEOUT, $timeOut);
+	$response = curl_exec($request);
+	curl_close($request);
+
+	$regularExpression = '#\<span class=bld\>(.+?)\<\/span\>#s';
+	preg_match($regularExpression, $response, $finalData);
+	$rate = $finalData[0];
+	$rate = strip_tags($rate);
+	$rate = substr($rate, 0, -4);
+
+	$price_pln = round($rate, 0, PHP_ROUND_HALF_UP);
+
+	if ( $price_pln < 1 ) {
+		return 1;
+	} else {
+		return $price_pln;
+	}
+}
+
 ?>
